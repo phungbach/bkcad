@@ -5,10 +5,12 @@ from tkinter.scrolledtext import ScrolledText
 import random
 # pip3 install tk
 
+bdg = "Gainsboro"
 #Giao dien
 giaodien = tkinter.Tk()
 giaodien.title("Trò chơi lô đề")
-giaodien.geometry('700x600')
+giaodien.geometry('750x650')
+giaodien.configure(bg=bdg)
 
 #func
 giaidacbiet = []
@@ -95,105 +97,127 @@ def reload_game():
     del giai7d[0:10]
     giai7d.append(random.randint(1,99))
 
+tongtien = 1000000
 
 def show_data():
     reload_game()
     scrolled.delete("0.1","end")
     scrolled.insert(tkinter.INSERT,"ĐB:"+"\t"+ str(giaidacbiet) + "\n")
     scrolled.insert(tkinter.INSERT,"1:"+"\t"+ str(giai1) + "\n")
-    scrolled.insert(tkinter.INSERT,"2:"+"\t"+ str(giai2a) + " " + str(giai2a) + "\n")
-    scrolled.insert(tkinter.INSERT,"3:"+"\t"+ str(giai3a) + " " + str(giai3b) + " " + str(giai3c) + " " + str(giai3d) + " " + str(giai3e) + " " + str(giai3f) + "\n")
-    scrolled.insert(tkinter.INSERT,"4:"+"\t"+ str(giai4a) + " " + str(giai4b) + " " + str(giai4c) + "\n")
-    scrolled.insert(tkinter.INSERT,"5:"+"\t"+ str(giai5a) + " " + str(giai5b) + " " + str(giai5c) + " " + str(giai5d) + " " + str(giai5e) + " " + str(giai5f) + "\n")
-    scrolled.insert(tkinter.INSERT,"6:"+"\t"+ str(giai6a) + " " + str(giai6b) + " " + str(giai6c) + "\n")
-    scrolled.insert(tkinter.INSERT,"7:"+"\t"+ str(giai7a) + " " + str(giai7b) + " " + str(giai7c) + " " + str(giai7d) + "\n")
-    tinhtien()
+    scrolled.insert(tkinter.INSERT,"2:"+"\t"+ str(giai2a) + "\t" + str(giai2a) + "\n")
+    scrolled.insert(tkinter.INSERT,"3:"+"\t"+ str(giai3a) + "\t" + str(giai3b) +"\t"  + str(giai3c)  +"\t" + str(giai3d) +"\t" + str(giai3e) + "\t" + str(giai3f) + "\n")
+    scrolled.insert(tkinter.INSERT,"4:"+"\t"+ str(giai4a) + "\t" + str(giai4b) + "\t" + str(giai4c) + "\n")
+    scrolled.insert(tkinter.INSERT,"5:"+"\t"+ str(giai5a) + "\t" + str(giai5b) + "\t" + str(giai5c) + "\t" + str(giai5d) + "\t" + str(giai5e) + "\t" + str(giai5f) + "\n")
+    scrolled.insert(tkinter.INSERT,"6:"+"\t"+ str(giai6a) + "\t" + str(giai6b) + "\t" + str(giai6c) + "\n")
+    scrolled.insert(tkinter.INSERT,"7:"+"\t"+ str(giai7a) + "\t" + str(giai7b) + "\t" + str(giai7c) + "\t" + str(giai7d) + "\n")
+
+def click_choide():
+    choide(tongtien)
+
+def click_choilo():
+    choilo(tongtien)
+
+def choide(tongtien):
+    show_data()
+    if str(dulieu2.get()) == str(giaidacbiet[3:4]):
+        tongtien = tongtien +  (int(dulieu2.get()) * 1000)
+        lb_sotienconlai_1.configure(text=tongtien)
+        lb_thongbao.configure(text="Thắng",font="weight=bold")
+    else:
+        tongtien = tongtien - (int(dulieu2.get()) * 1000)
+        lb_sotienconlai_1.configure(text=tongtien)
+        lb_thongbao.configure(text="Thua",font="weight=bold")
+        if tongtien <= 0:
+            lb_thongbao.configure(text="Bạn đã hết tiền vui lòng chơi lại",font="weight=bold")
+            tongtien = 1000000
+            lb_sotienconlai_1.configure(text=tongtien)
     dulieu1.set("0")
     dulieu2.set("0")
     dulieu3.set("0")
     dulieu4.set("0")
 
-def tinhtien():
-    tongtien = 1000000
-    if str(dulieu1.get()) == str(giaidacbiet[3:4]):
-        tongtien = tongtien +  (int(dulieu2.get()) * 23000)
+
+
+def choilo(tongtien):
+    show_data()
+    if str(dulieu3.get()) == str(giaidacbiet[3:4]) or str(dulieu3.get()) == str(giai1[3:4]) or str(dulieu3.get()) == str(giai2a[3:4]) or str(dulieu3.get()) == str(giai2b[3:4]) or str(dulieu3.get()) == str(giai3a[3:4]) or str(dulieu3.get()) == str(giai3b[3:4]) or str(dulieu3.get()) == str(giai3c[3:4]) or str(dulieu3.get()) == str(giai3d[3:4]) or str(dulieu3.get()) == str(giai3e[3:4]) or str(dulieu3.get()) == str(giai3f[3:4]) or str(dulieu3.get()) == str(giai4a[3:4]) or str(dulieu3.get()) == str(giai4b[3:4]) or str(dulieu3.get()) == str(giai4c[3:4]) or str(dulieu3.get()) == str(giai5a[3:4]) or str(dulieu3.get()) == str(giai5b[3:4]) or str(dulieu3.get()) == str(giai5c[3:4]) or str(dulieu3.get()) == str(giai5d[3:4]) or str(dulieu3.get()) == str(giai5e[3:4]) or str(dulieu3.get()) == str(giai5f[3:4]) or str(dulieu3.get()) == str(giai6a[3:4]) or str(dulieu3.get()) == str(giai6b[3:4]) or str(dulieu3.get()) == str(giai6c[3:4]) or str(dulieu3.get()) == str(giai7a[3:4]) or str(dulieu3.get()) == str(giai7b[3:4]) or str(dulieu3.get()) == str(giai7c[3:4]) or str(dulieu3.get()) == str(giai7d[3:4]):
+        tongtien = tongtien +  (int(dulieu4.get()) * 23000)
         lb_sotienconlai_1.configure(text=tongtien)
-        lb_thongbao.configure(text="Thắng")
+        lb_thongbao.configure(text="Thắng",fg="blue",font="weight=bold")
     else:
-        tongtien = tongtien - (int(dulieu2.get()) * 23000)
+        tongtien = tongtien - (int(dulieu4.get()) * 23000)
         lb_sotienconlai_1.configure(text=tongtien)
-        lb_thongbao.configure(text="Thua")
+        lb_thongbao.configure(text="Thua",fg="red",font="weight=bold")
         if tongtien <= 0:
-            lb_thongbao.configure(text="Bạn đã hết tiền vui lòng chơi lại")
-    return tongtien
+            lb_thongbao.configure(text="Bạn đã hết tiền vui lòng chơi lại",fg="red",font="weight=bold")
+            tongtien = 1000000
+            lb_sotienconlai_1.configure(text=tongtien)
+    dulieu1.set("0")
+    dulieu2.set("0")
+    dulieu3.set("0")
+    dulieu4.set("0")
 #Label
-label1 = tkinter.Label(giaodien,text="Trò chơi lô đề",fg="black",bg="white")
-label1.grid(column=1,row=1)
+label1 = tkinter.Label(giaodien,text="Trò chơi lô đề",fg="black",bg=bdg,font="weight=bold")
+label1.grid(columnspan=3,row=1,sticky="w",pady=10)
 #Label
-label1 = tkinter.Label(giaodien,text="I. Chơi lô",fg="black",bg="white")
-label1.grid(column=1,row=2)
+label1 = tkinter.Label(giaodien,text="I. Chơi Đề",fg="black",bg=bdg,font="weight=bold")
+label1.grid(column=1,row=2,sticky="w")
 #Label
-label2 = tkinter.Label(giaodien,text="Chọn số: ",fg="black",bg="white")
-label2.grid(column=1,row=3)
+label2 = tkinter.Label(giaodien,text="Chọn số: ",fg="black",bg=bdg)
+label2.grid(column=1,row=3,sticky="w",padx=10,pady=10)
 #Textbox
 dulieu1 = tkinter.IntVar()
 txt_chonso = tkinter.Entry(giaodien,width=30,textvariable=dulieu1)
-txt_chonso.grid(column=2,row=3)
+txt_chonso.grid(column=2,row=3,sticky="w",padx=10,pady=10)
 #Label
-label3 = tkinter.Label(giaodien,text="Đánh mấy điểm: ",fg="black",bg="white")
-label3.grid(column=3,row=3)
+label3 = tkinter.Label(giaodien,text="Đánh mấy điểm: ",fg="black",bg=bdg)
+label3.grid(column=3,row=3,sticky="w",padx=10,pady=10)
 #Textbox
 dulieu2 = tkinter.IntVar()
 txt_diem = tkinter.Entry(giaodien,width=30,textvariable=dulieu2)
-txt_diem.grid(column=4,row=3)
+txt_diem.grid(column=4,row=3,sticky="w",padx=10,pady=10)
 #Button
-button = tkinter.Button(giaodien,text="Chơi đi đừng sợ",fg="black",bg="white",command=show_data)
-button.grid(column=3,row=4)
+button = tkinter.Button(giaodien,text="Chơi đi đừng sợ",fg="black",bg="white",command=click_choide)
+button.grid(column=3,row=4,sticky="w",padx=10,pady=10)
 
 ###
 
 #Label
-lb_choide = tkinter.Label(giaodien,text="I. Chơi Đề",fg="black",bg="white")
-lb_choide.grid(column=1,row=6)
+lb_choide = tkinter.Label(giaodien,text="I. Chơi Lô",fg="black",bg=bdg,font="weight=bold")
+lb_choide.grid(column=1,row=6,sticky="w")
 #Label
-label2 = tkinter.Label(giaodien,text="Chọn số: ",fg="black",bg="white")
-label2.grid(column=1,row=7)
+label2 = tkinter.Label(giaodien,text="Chọn số: ",fg="black",bg=bdg)
+label2.grid(column=1,row=7,sticky="w",padx=10,pady=10)
 #Textbox
 dulieu3 = tkinter.IntVar()
 txt_chonso1 = tkinter.Entry(giaodien,width=30,textvariable=dulieu3)
-txt_chonso1.grid(column=2,row=7)
+txt_chonso1.grid(column=2,row=7,sticky="w",padx=10,pady=10)
 #Label
-label3 = tkinter.Label(giaodien,text="Đánh mấy điểm: ",fg="black",bg="white")
-label3.grid(column=3,row=7)
+label3 = tkinter.Label(giaodien,text="Đánh mấy điểm: ",fg="black",bg=bdg)
+label3.grid(column=3,row=7,sticky="w",padx=10,pady=10)
 #Textbox
 dulieu4 = tkinter.IntVar()
 txt_diem2 = tkinter.Entry(giaodien,width=30,textvariable=dulieu4)
-txt_diem2.grid(column=4,row=7)
+txt_diem2.grid(column=4,row=7,sticky="w",padx=10,pady=10)
 #Button
-button = tkinter.Button(giaodien,text="Chơi đi đừng sợ",fg="black",bg="white")
-button.grid(column=3,row=8)
+button = tkinter.Button(giaodien,text="Chơi đi đừng sợ",fg="black",bg="white",command=click_choilo)
+button.grid(column=3,row=8,sticky="w",padx=10,pady=10)
 
 #Scrolled Text
 scrolled = ScrolledText(giaodien,width=60,height = 15)
-scrolled.grid(column=2,columnspan=4,row=9,sticky="w")
+scrolled.grid(column=2,columnspan=4,row=9,sticky="w",padx=10,pady=10)
 
 #Label
-lb_tongdiem = tkinter.Label(giaodien,text="Tổng số tiền: 1.000.000 VND",fg="black",bg="white")
-lb_tongdiem.grid(column=1,row=12)
+lb_tongdiem = tkinter.Label(giaodien,text="Tổng số tiền: 1.000.000 VND",fg="black",bg=bdg)
+lb_tongdiem.grid(column=1,row=12,sticky="w",padx=10,pady=10)
 
-lb_sotienconlai = tkinter.Label(giaodien,text="Số tiền còn lại",fg="black",bg="white")
-lb_sotienconlai.grid(column=1,row=13)
+lb_sotienconlai = tkinter.Label(giaodien,text="Số tiền còn lại",fg="black",bg=bdg)
+lb_sotienconlai.grid(column=1,row=13,sticky="w",padx=10,pady=10)
 
-lb_sotienconlai_1 = tkinter.Label(giaodien,text="",fg="black",bg="blue")
-lb_sotienconlai_1.grid(column=2,row=13)
+lb_sotienconlai_1 = tkinter.Label(giaodien,text="",fg="black",bg=bdg)
+lb_sotienconlai_1.grid(column=2,row=13,sticky="w",padx=10,pady=10)
 
-lb_thongbao = tkinter.Label(giaodien,text="",fg="black",bg="blue")
-lb_thongbao.grid(column=4,row=13)
-
-lb_thongbao1 = tkinter.Label(giaodien,text="",fg="black",bg="blue")
-lb_thongbao1.grid(column=4,row=14)
-
-# lb_thongbao = tkinter.Label(giaodien,text="",fg="black",bg="blue")
-# lb_thongbao.grid(column=4,row=13)
+lb_thongbao = tkinter.Label(giaodien,text="",fg="red",bg=bdg)
+lb_thongbao.grid(column=4,row=13,sticky="w",padx=10,pady=10)
 
 giaodien.mainloop()
