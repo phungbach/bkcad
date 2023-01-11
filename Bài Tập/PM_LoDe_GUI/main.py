@@ -96,10 +96,9 @@ def reload_game():
     giai7d.append(random.randint(1,99))
 
 
-
 def show_data():
-    clear()
     reload_game()
+    scrolled.delete("0.1","end")
     scrolled.insert(tkinter.INSERT,"ĐB:"+"\t"+ str(giaidacbiet) + "\n")
     scrolled.insert(tkinter.INSERT,"1:"+"\t"+ str(giai1) + "\n")
     scrolled.insert(tkinter.INSERT,"2:"+"\t"+ str(giai2a) + " " + str(giai2a) + "\n")
@@ -109,26 +108,24 @@ def show_data():
     scrolled.insert(tkinter.INSERT,"6:"+"\t"+ str(giai6a) + " " + str(giai6b) + " " + str(giai6c) + "\n")
     scrolled.insert(tkinter.INSERT,"7:"+"\t"+ str(giai7a) + " " + str(giai7b) + " " + str(giai7c) + " " + str(giai7d) + "\n")
     tinhtien()
-    print(tinhtien())
-
-def clear():
-    scrolled.delete("0.1","end")
     dulieu1.set("0")
     dulieu2.set("0")
     dulieu3.set("0")
     dulieu4.set("0")
 
 def tinhtien():
-
     tongtien = 1000000
     if str(dulieu1.get()) == str(giaidacbiet[3:4]):
         tongtien = tongtien +  (int(dulieu2.get()) * 23000)
         lb_sotienconlai_1.configure(text=tongtien)
+        lb_thongbao.configure(text="Thắng")
     else:
         tongtien = tongtien - (int(dulieu2.get()) * 23000)
         lb_sotienconlai_1.configure(text=tongtien)
+        lb_thongbao.configure(text="Thua")
+        if tongtien <= 0:
+            lb_thongbao.configure(text="Bạn đã hết tiền vui lòng chơi lại")
     return tongtien
-
 #Label
 label1 = tkinter.Label(giaodien,text="Trò chơi lô đề",fg="black",bg="white")
 label1.grid(column=1,row=1)
@@ -189,5 +186,14 @@ lb_sotienconlai.grid(column=1,row=13)
 
 lb_sotienconlai_1 = tkinter.Label(giaodien,text="",fg="black",bg="blue")
 lb_sotienconlai_1.grid(column=2,row=13)
+
+lb_thongbao = tkinter.Label(giaodien,text="",fg="black",bg="blue")
+lb_thongbao.grid(column=4,row=13)
+
+lb_thongbao1 = tkinter.Label(giaodien,text="",fg="black",bg="blue")
+lb_thongbao1.grid(column=4,row=14)
+
+# lb_thongbao = tkinter.Label(giaodien,text="",fg="black",bg="blue")
+# lb_thongbao.grid(column=4,row=13)
 
 giaodien.mainloop()
