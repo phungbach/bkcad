@@ -122,11 +122,11 @@ def choide(tongtien):
     if str(dulieu2.get()) == str(giaidacbiet[3:4]):
         tongtien = tongtien +  (int(dulieu2.get()) * 1000)
         lb_sotienconlai_1.configure(text=tongtien)
-        lb_thongbao.configure(text="Thắng",font="weight=bold")
+        lb_thongbao.configure(text="Thắng")
     else:
         tongtien = tongtien - (int(dulieu2.get()) * 1000)
         lb_sotienconlai_1.configure(text=tongtien)
-        lb_thongbao.configure(text="Thua",font="weight=bold")
+        lb_thongbao.configure(text="Thua")
         if tongtien <= 0:
             lb_thongbao.configure(text="Bạn đã hết tiền vui lòng chơi lại",font="weight=bold")
             tongtien = 1000000
@@ -143,11 +143,11 @@ def choilo(tongtien):
     if str(dulieu3.get()) == str(giaidacbiet[3:4]) or str(dulieu3.get()) == str(giai1[3:4]) or str(dulieu3.get()) == str(giai2a[3:4]) or str(dulieu3.get()) == str(giai2b[3:4]) or str(dulieu3.get()) == str(giai3a[3:4]) or str(dulieu3.get()) == str(giai3b[3:4]) or str(dulieu3.get()) == str(giai3c[3:4]) or str(dulieu3.get()) == str(giai3d[3:4]) or str(dulieu3.get()) == str(giai3e[3:4]) or str(dulieu3.get()) == str(giai3f[3:4]) or str(dulieu3.get()) == str(giai4a[3:4]) or str(dulieu3.get()) == str(giai4b[3:4]) or str(dulieu3.get()) == str(giai4c[3:4]) or str(dulieu3.get()) == str(giai5a[3:4]) or str(dulieu3.get()) == str(giai5b[3:4]) or str(dulieu3.get()) == str(giai5c[3:4]) or str(dulieu3.get()) == str(giai5d[3:4]) or str(dulieu3.get()) == str(giai5e[3:4]) or str(dulieu3.get()) == str(giai5f[3:4]) or str(dulieu3.get()) == str(giai6a[3:4]) or str(dulieu3.get()) == str(giai6b[3:4]) or str(dulieu3.get()) == str(giai6c[3:4]) or str(dulieu3.get()) == str(giai7a[3:4]) or str(dulieu3.get()) == str(giai7b[3:4]) or str(dulieu3.get()) == str(giai7c[3:4]) or str(dulieu3.get()) == str(giai7d[3:4]):
         tongtien = tongtien +  (int(dulieu4.get()) * 23000)
         lb_sotienconlai_1.configure(text=tongtien)
-        lb_thongbao.configure(text="Thắng",fg="blue",font="weight=bold")
+        lb_thongbao.configure(text="Thắng")
     else:
         tongtien = tongtien - (int(dulieu4.get()) * 23000)
         lb_sotienconlai_1.configure(text=tongtien)
-        lb_thongbao.configure(text="Thua",fg="red",font="weight=bold")
+        lb_thongbao.configure(text="Thua")
         if tongtien <= 0:
             lb_thongbao.configure(text="Bạn đã hết tiền vui lòng chơi lại",fg="red",font="weight=bold")
             tongtien = 1000000
