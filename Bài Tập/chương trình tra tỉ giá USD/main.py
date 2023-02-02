@@ -23,6 +23,10 @@ def doitien():
     hienthi = str(dulieu1.get()) + " USD đổi ra được "+ str(tong) + str(combobox.get())+ "\n" + "Last Time Update --- " + str(localtime)
     label12.configure(text=hienthi)
 
+def clear():
+    dulieu1.set(" ")
+    dulieu2.set(" ")
+    label12.configure(text=" ")
 
 giaodien = tkinter.Tk()
 giaodien.title("Chuong trinh")
@@ -78,7 +82,7 @@ button = tkinter.Button(giaodien,text="Search",fg="black",bg="white",width=8,com
 button.grid(column=1,row=3,sticky="W",padx=10,pady=10)
 
 #Button
-button1 = tkinter.Button(giaodien,text="Clear",fg="black",bg="white",width=8)
+button1 = tkinter.Button(giaodien,text="Clear",fg="black",bg="white",width=8,command=clear)
 button1.grid(column=1,row=4,sticky="W",padx=10,pady=10)
 
 
