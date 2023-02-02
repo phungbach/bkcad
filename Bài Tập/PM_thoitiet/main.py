@@ -42,10 +42,6 @@ def show():
     except:
         pass
 
-
-
-
-
 #Giao dien
 giaodien = tkinter.Tk()
 giaodien.title("Chuong trinh")
